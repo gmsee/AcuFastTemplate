@@ -1,0 +1,122 @@
+---
+title: "Acufast RMD reporting style"
+author: "Your name"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  html_document:
+    toc: true
+    theme: flatly
+    toc_float: 
+      collapsed: false
+    toc_depth: 3
+    css: resources/acufast_style.css
+    self_contained: yes
+---
+
+```{r logo, echo=FALSE}
+htmltools::img(src = knitr::image_uri("resources/AcuFast_symbol_colour.png"), 
+               alt = 'logo', width="150px",
+               style = 'position:absolute; top:0; right:50px; padding:10px;')
+```
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=F,comment=F,warning=F,error=F,message=F,fig.align="center",fig.width=8)
+
+#Tables
+library(knitr)
+library(kableExtra)
+
+#Figures
+library(ggplot2)
+library(ggpubr)
+
+theme_set(theme_pubr())
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including nice Plots
+
+You can also embed enhanced plots using the `ggplot2` and `ggpubr` packages, for example:
+
+```{r pressure, echo=TRUE}
+plot1 <- ggplot(pressure, aes(x=temperature, y=pressure)) +
+  geom_point() + geom_line()
+plot2 <- ggplot(pressure, aes(x=temperature)) +
+  geom_histogram()
+plot3 <- ggplot(pressure, aes(x=pressure)) +
+  geom_histogram()
+
+
+ggarrange(plot1,
+          ggarrange(plot2,plot3, ncol=2, labels=c("B","C")), 
+          nrow=2, labels=c("A",""))
+```
+
+Note that the `echo = TRUE` parameter was added to the code chunk to print the R code that generated the table.
+
+## Including nice tables
+
+You can embed formatted tables using the `kableExtra` package, for example:
+
+```{r diamond, echo=TRUE}
+kable(head(diamonds), caption="Information about diamonds") %>%
+  kable_classic(full_width=F,html_font="Helvetica")
+```
+
+Note that the `echo = TRUE` parameter was added to the code chunk to print the R code that generated the table.
+
+## Making columns 
+
+You can make 2 or 3 columns of content using the custom styling functions `<div class="col2">` or `<div class="col3">`.
+
+### As two columns
+
+<div class="col2">
+
+   1) Some things
+      + Some sub things
+      + Some sub things
+   2) Some more things
+      + Some more sub things
+         - Some sub sub things
+         - Some more sub sub things
+         - Some more sub sub things
+         - Some more sub sub things
+         - Some more sub sub things
+   3) Some final things
+      + Some final sub things
+         - Some final sub sub things
+         - Some final sub sub things
+         
+</div>
+
+### Or as three columns
+
+<div class="col3">
+
+   1) Some things
+      + Some sub things
+      + Some sub things
+   2) Some more things
+      + Some more sub things
+         - Some sub sub things
+         - Some more sub sub things
+         - Some more sub sub things
+         - Some more sub sub things
+         - Some more sub sub things
+   3) Some final things
+      + Some final sub things
+         - Some final sub sub things
+         - Some final sub sub things
+         
+</div>
