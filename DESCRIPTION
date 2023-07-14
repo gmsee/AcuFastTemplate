@@ -1,6 +1,6 @@
 Package: AcuFastTemplate
 Type: Package
-Title: the AcuFast html template
+Title: The AcuFast html template
 Version: 0.1.0
 Author: Garrett
 Maintainer: The package maintainer <yourself@somewhere.net>
