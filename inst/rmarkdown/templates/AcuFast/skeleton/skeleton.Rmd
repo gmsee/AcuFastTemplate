@@ -17,6 +17,9 @@ output:
 htmltools::img(src = knitr::image_uri("resources/AcuFast_symbol_colour.png"), 
                alt = 'logo', width="150px",
                style = 'position:absolute; top:0; right:50px; padding:10px;')
+acufastBlue = "#13639c"
+acufastPink = "#f27895"
+acufastMidpoint = "aliceblue"
 ```
 
 
@@ -49,8 +52,8 @@ summary(cars)
 You can also embed enhanced plots using the `ggplot2` and `ggpubr` packages, for example:
 
 ```{r pressure, echo=TRUE}
-plot1 <- ggplot(pressure, aes(x=temperature, y=pressure)) +
-  geom_point() + geom_line()
+plot1 <- ggplot(pressure, aes(x=temperature, y=pressure, color=temperature)) +
+  geom_point() + geom_line() + scale_color_continuous(low=acufastPink, high=acufastBlue)
 plot2 <- ggplot(pressure, aes(x=temperature)) +
   geom_histogram()
 plot3 <- ggplot(pressure, aes(x=pressure)) +
