@@ -14,12 +14,16 @@ output:
 ---
 
 ```{r logo, echo=FALSE}
+library(AcuFastTemplate)
 htmltools::img(src = knitr::image_uri("resources/AcuFast_symbol_colour.png"), 
                alt = 'logo', width="150px",
                style = 'position:absolute; top:0; right:50px; padding:10px;')
+
 acufastBlue = "#13639c"
 acufastPink = "#f27895"
 acufastMidpoint = "aliceblue"
+acufastGreen = "#509E2F"
+acufastOther = "thistle1"
 ```
 
 
@@ -123,3 +127,54 @@ You can make 2 or 3 columns of content using the custom styling functions `<div 
          - Some final sub sub things
          
 </div>
+
+## Example of Tabs {.tabset .tabset-fade .tabset-pills}
+
+To escape a tabset, simply add another header with the same level that calls the tabs 
+
+### Tab 1
+
+Here is a Tab
+
+### Tab 2
+
+Here is another Tab
+
+## Example of Nested Tabs {.tabset .tabset-fade .tabset-pills}
+
+* Below is an example of a Nested Tabset, where the nesting is done in a for() loop. 
+  + When using tabs in a for() loop, results = 'asis' needs to be specified
+  + Note the use of cat()
+* Note the difference in the tab design whether tabset-fade and tabset-pill are used or not 
+
+```{r, echo=FALSE, results='asis'}
+my.tabs<-c(1:3)
+my.sub.tabs<-c(1,2)
+
+for(i in 1:length(my.tabs)){
+  
+cat('### Tab',my.tabs[i],' {.tabset} \n')
+cat('This is tab ',my.tabs[i],' \n  \n')
+for(j in 1:length(my.sub.tabs)){
+  cat('#### Sub-Tab',my.sub.tabs[j],' {.tabset} \n')
+  cat('This is sub-tab ',my.sub.tabs[j],' \n  \n')
+  cat(' \n \n')
+}
+
+}
+```
+
+## Collapsible Output
+
+* Below is an example of collapsible output
+  + The code could also be used with loops. Make sure to use results = 'asis', and the use of cat() like Tabbing above
+
+
+<details>
+<summary>Click to display table.</summary>
+``` {r}
+kable(head(diamonds), caption="Information about diamonds") %>%
+  kable_classic(full_width=F,html_font="Helvetica")
+
+```
+</details>
