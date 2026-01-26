@@ -35,4 +35,12 @@ body {
   columns: 3 100px;
   -webkit-columns: 3 100px;
   -moz-columns: 3 100px;
+
+}
+.nav-pills>li>a {
+     color: #13639c;
+}
+.nav-pills>li>a:hover, .nav-pills>li>a:focus, .nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus{
+     color: aliceblue;
+     background-color: #13639c;
 }
