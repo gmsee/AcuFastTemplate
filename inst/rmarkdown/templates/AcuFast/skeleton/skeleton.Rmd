@@ -24,6 +24,7 @@ acufastPink = "#f27895"
 acufastMidpoint = "aliceblue"
 acufastGreen = "#509E2F"
 acufastOther = "thistle1"
+acufastRed = "#C0392B"
 ```
 
 
@@ -178,3 +179,4 @@ kable(head(diamonds), caption="Information about diamonds") %>%
 
 ```
 </details>
+
